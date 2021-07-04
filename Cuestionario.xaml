@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SleepyTeddy.Views.Cuestionario" NavigationPage.HasBackButton="False">
+    <Page.ToolbarItems>
+        <ToolbarItem Text="Example Item"
+                 IconImageSource="account.png"
+                 Order="Primary"
+                 Priority="0"
+                
+                 Clicked="AccountSelectPaciente"/>
+        <ToolbarItem Order="Primary" Priority="0" />
+        <ToolbarItem Order="Primary" Priority="0" />
+        <ToolbarItem Order="Primary" Priority="0" />
+        <ToolbarItem Order="Primary" Priority="0" />
+        <ToolbarItem Order="Primary" Priority="0" />
+        <ToolbarItem Order="Primary" Priority="0" />
+        <ToolbarItem Order="Primary" Priority="0" />
+
+
+    </Page.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="15" HorizontalOptions="Center" VerticalOptions="Center" >
+                <Label Grid.Row="0" HorizontalOptions="Center" Text="MIS CUESTIONARIOS" FontAttributes="Bold"></Label>
+                <ListView Grid.Row="0" Grid.Column="0" Margin="5" HeightRequest="400" x:Name="MyListView" ItemsSource="{Binding Items}" ItemTapped="Handle_ItemTapped" CachingStrategy="RecycleElement">
+                    <!--Built in Cells-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding .}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

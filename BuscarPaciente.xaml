@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SleepyTeddy.Views.BuscarPaciente" NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="15" HorizontalOptions="Center" VerticalOptions="Center" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+
+            <Label Text="Buscar Paciente" FontAttributes="Bold" FontSize="30" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+
+            <Entry Grid.Row="0"
+                   Grid.Column="2"
+                   Margin="20"
+                   x:Name="apTerapeuta"
+                   Placeholder="Buscar Apellido"
+                   WidthRequest="100"
+
+                   VerticalOptions="Center"
+
+               />
+            <Button Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="5"
+                    x:Name="btnSearchPaciente"
+                    Text="Buscar"
+                    TextColor="White"
+                    BackgroundColor="#2c3e50"
+                    WidthRequest="120"
+                    FontSize="20"
+                    FontAttributes="Bold"
+
+                    HorizontalOptions="Center"
+                    CornerRadius="10"
+                    Clicked="btnSearch_clicked_paciente" />
+
+
+
+            <ListView x:Name="list_terapist" ItemsSource="{Binding ListPatient}" Margin="10" VerticalOptions="Center" 
+                      ItemTapped="Handle_ItemTapped" HasUnevenRows="True" Grid.Row="3" Grid.Column="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15,0">
+                                <Label x:Name="nameTerapeuta" Text="{Binding nombre_completo}" FontSize="20" IsVisible="True" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Grid.Row="4"
+                    Grid.Column="0"
+                    Margin="5"
+                    x:Name="btnRegistrarPaciente"
+                    Text="Crear Paciente"
+                    TextColor="White"
+                    BackgroundColor="#2c3e50"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"
+                    CornerRadius="10"
+                    Clicked="btnRegistrarPaciente_clicked" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
